@@ -1,0 +1,58 @@
+upstream websocket{
+    #Change the port to whatever is configured in the .env file 
+	server localhost:9000;
+}
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name 127.0.0.1;
+    return 302 https://$server_name$request_uri;
+}
+ 
+server {
+	listen 443 ssl http2 default_server;
+    listen [::]:443 ssl http2 default_server;
+
+    ssl_certificate /path/to/certificate;
+    ssl_certificate_key /path/to/key;      
+
+    root /home/haider/pchat/public;
+    index index.php index.html index.htm index.nginx-debian.html;
+
+    server_name 127.0.0.1;
+
+  
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    #Rewrite to match your fpm version 
+
+    location ~ \.php$ {     
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php7.4-fpm.sock;    
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+
+    #Change /chatServer to whatever is configured for APP_WS_URL in .env file 
+    #reverse proxy 
+    location /chatServer {
+         proxy_pass http://websocket;
+         proxy_http_version 1.1;
+         proxy_set_header Upgrade $http_upgrade;
+         proxy_set_header Connection "upgrade";
+         proxy_set_header Host $host;
+
+         proxy_set_header X-Real-IP $remote_addr;
+         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+         proxy_set_header X-Forwarded-Proto https;
+         proxy_read_timeout 86400;
+         proxy_redirect off;
+    }
+
+}
+

@@ -1,0 +1,167 @@
+body{
+    font-family: 'Inconsolata', monospace;
+    background: black;    
+}
+
+.container{
+    font-family: 'Inconsolata', monospace;
+    width: 800px;
+    margin-left:  auto;
+    margin-right: auto;
+}
+
+.app{
+    font-family: 'Inconsolata', monospace;
+    border: 1px solid green;
+    color: green;    
+    padding: 10px;
+    background: black;  
+}
+
+.help{
+    color:green;
+}
+
+.help a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.msg{
+    padding:0px;
+}
+
+.interests{
+    border: 1px solid green;  
+    padding: 10px; 
+    margin: 10px;               
+}
+
+.dinterest{
+    font-family: 'Inconsolata', monospace;
+    font-size: 25px;
+    border: 1px outset green;
+    margin-left: 10px;
+    margin-bottom: 10px;   
+    padding-left: 5px;   
+    display: inline-block;    
+}
+
+
+input[type=text]{
+    font-family: 'Inconsolata', monospace;
+    color: green;
+    background-color: black;
+    outline: green;
+    border: 1px solid black;     
+    width: 75%;
+    word-wrap: break-word;    
+    font-size: 1em;      
+}
+
+.href_but{
+    font-family: 'Inconsolata', monospace;
+    color:green;
+    vertical-align: super;
+    border: 1px solid green;
+    text-decoration:none;
+}
+
+.chatMsg{
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-size: 1em;
+}
+
+button:hover{
+    outline: white;
+}
+
+input[type=submit]{
+    font-family: 'Inconsolata', monospace;
+    height: 5%;
+    width: 15%;
+    color:green;
+    background-color: black;
+    border: 1px solid green;    
+    outline: green;      
+}
+
+.chatMsg a{
+    color:green;
+}
+
+/* input[type=file]{
+    display:none;
+} */
+
+input[type=submit]:focus{
+    border: 1px solid white;
+}
+
+input[type=submit]:hover{
+    border: 1px solid white;
+}
+
+input[type=submit]:active{
+    border: 1px solid white;
+}
+
+textarea{
+    color: green;
+    background-color: black;
+    resize: None;
+    Width: 100%;
+    Height: 20%;
+    outline: green;
+    border: 1px solid green;
+    padding-left: 10px;
+    padding-top: 5px;
+    font-family: 'Inconsolata', monospace; 
+    font-size: 1em;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: green;
+    opacity: 1; /* Firefox */
+    font-family: 'Inconsolata', monospace;
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: green;
+    font-family: 'Inconsolata', monospace;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: green;
+    font-family: 'Inconsolata', monospace;
+  }
+
+  .chatAudio{
+      height:10px !important;            
+  }
+
+  .icobtn{
+      background-color:green;
+      outline:none;
+      border:1px solid black;
+      cursor: pointer;
+      height: 5%;
+      width: 5%;
+  }
+
+
+  .active{
+    background-color:red;
+    outline:none;
+    border:1px solid black;      
+  }
+
+
+.active:active{
+      background-color: green !important;      
+  }
+
+.icobtn:active {
+    background-color: red;    
+}
