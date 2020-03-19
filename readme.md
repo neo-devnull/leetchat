@@ -83,7 +83,7 @@ sudo ufw allow 9000
 - **Configuring permissions**
 You need to make sure that the website is able to write and read from /storage directory. I recommend that you make the ```www-data``` user the owner and group of this directory. You could then add your user to the ```www-data``` group if you need to work within this directory.
 ```
-sudo chown -R storage www-data:www-data
+sudo chown -R www-data:www-data storage
 ```
 - **Running the websocket server**
 You will also need to run the websocket server as the ```www-data``` user so that the console script can access the storage directory for writing logs and reading the user uploaded media.
@@ -98,5 +98,11 @@ sudo -u www-data php artisan websocket:init
 ##### Why use memcached for cache but not for sessions?
 Before you read further, the cache data is only used to identify the partner of a client. The initial idea was to use memcached for both sessions and cache data.  However i noticed a problem when using memcached for sessions. The web application is unable to populate the session data in memcached after the server boots up. The fix was to restart the memcache daemon manually. I made the switch to file based sessions anyway. This is not that big of a problem, you can still use memcached if you chose to.  All you have to do is change it in the laravel configuration. My justification for using memcached for cache is scalability. In its current state, i guess its not that impactful but it might if the project expands. But again, you can always make the switch to filesystem, just change it in the .env file. Simple as that. 
 
+##### User media 
+All user uploaded media is available through a route that serves them, the url is signed and is only accessible for 30 minutes. The files are stored on the server until they are deleted.
+
 ##### Care to explain the design?
-The design is inspired by a running gag from the telegram communities im part of. I am not very good with CSS and this is what i could come up with.
+All user uploaded media is available through a route that serves them, the url is signed and is only accessible for 30 minutes. 
+
+##### To Do?
+Write a scheduled task that will delete the stored files. 

@@ -11,13 +11,13 @@ server {
 }
  
 server {
-	listen 443 ssl http2 default_server;
-    listen [::]:443 ssl http2 default_server;
+	listen 443 ssl http2;
+    listen [::]:443 ssl http2;
 
     ssl_certificate /path/to/certificate;
     ssl_certificate_key /path/to/key;      
 
-    root /home/haider/pchat/public;
+    root /path/to/leetchat/public;
     index index.php index.html index.htm index.nginx-debian.html;
 
     server_name 127.0.0.1;

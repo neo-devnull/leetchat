@@ -16,8 +16,7 @@ use App\Users;
 
 class HomeController extends Controller
 {
-    public function home(Request $request){  
-        Log::info('testing');              
+    public function home(Request $request){                        
         $socket_addr = env('APP_WS_URL',null);
         if(!$socket_addr){
             die("Please configure the APP_WS_URL in environment");
