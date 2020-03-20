@@ -22,6 +22,8 @@ server {
 
     server_name 127.0.0.1;
 
+    error_log /path/to/logs/leetchat/nginx/error.log warn; 
+    access_log /path/to/logs/leetchat/nginx/access.log;
   
     location / {
         try_files $uri $uri/ /index.php?$query_string;

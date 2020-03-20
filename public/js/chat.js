@@ -368,7 +368,7 @@ var app = new Vue({
         .then(function(data){          
           self.sendFile(data)
         })  
-        .catch(function(err){            
+        .catch(function(err){                   
           res = err.response.data 
           if(!res.errors){
             alert("An unexpected error occured");

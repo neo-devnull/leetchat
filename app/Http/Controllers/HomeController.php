@@ -47,7 +47,7 @@ class HomeController extends Controller
             $sess_id = session()->getId();
             $chat = Users::where('sess_id',$sess_id)->where('status',1)->get();
             if(!count($chat)){
-                $validator->errors()->add('sess','Not in a chat bud');
+                $validator->errors()->add('sess','You must be in a chat to upload files.');
             }
        });
 
