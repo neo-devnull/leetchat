@@ -44,7 +44,7 @@ composer install
 
 ```
 
-- **Copy the env example **
+- **Copy the env example**
 
 ```
 cp .env.example .env
