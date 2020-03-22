@@ -34,8 +34,7 @@ The front end is written using VueJS. I personally think the code on the front e
 -  **Clone the repository**
 
 ```
-https://github.com/haiderali97/pchat
-
+git clone https://github.com/haiderali97/leetchat.git
 ```
 
 -  **Install dependecies**
